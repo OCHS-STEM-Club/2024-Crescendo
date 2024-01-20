@@ -68,11 +68,11 @@ public class RobotContainer
                                                                          () -> driverXbox.getRawAxis(2));
 
     AbsoluteDriveAdv closedAbsoluteDriveAdv = new AbsoluteDriveAdv(drivebase,
-                                                                      () -> MathUtil.applyDeadband(driverXbox.getLeftY(),
+                                                                      () -> MathUtil.applyDeadband(driverXbox.getRawAxis(1),
                                                                                                 OperatorConstants.LEFT_Y_DEADBAND),
-                                                                      () -> MathUtil.applyDeadband(driverXbox.getLeftX(),
+                                                                      () -> MathUtil.applyDeadband(driverXbox.getRawAxis(0),
                                                                                                   OperatorConstants.LEFT_X_DEADBAND),
-                                                                      () -> MathUtil.applyDeadband(driverXbox.getRightX(),
+                                                                      () -> MathUtil.applyDeadband(driverXbox.getRawAxis(4),
                                                                                                   OperatorConstants.RIGHT_X_DEADBAND), 
                                                                       driverXbox::getYButtonPressed, 
                                                                       driverXbox::getAButtonPressed, 
@@ -91,7 +91,7 @@ public class RobotContainer
         () -> MathUtil.applyDeadband(driverController.getRawAxis(0), OperatorConstants.LEFT_X_DEADBAND),
         () -> -driverController.getRawAxis(2), () -> true);
 
-     drivebase.setDefaultCommand(!RobotBase.isSimulation() ? closedAbsoluteDrive : closedAbsoluteDrive);
+     drivebase.setDefaultCommand(!RobotBase.isSimulation() ? closedAbsoluteDriveAdv : closedAbsoluteDriveAdv);
   }
 
   /**
