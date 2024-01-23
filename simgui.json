@@ -104,9 +104,6 @@
   },
   "NetworkTables": {
     "transitory": {
-      "LiveWindow": {
-        "open": true
-      },
       "SmartDashboard": {
         "Field": {
           "open": true
@@ -119,6 +116,9 @@
     }
   },
   "NetworkTables Info": {
+    "Clients": {
+      "open": true
+    },
     "visible": true
   }
 }
